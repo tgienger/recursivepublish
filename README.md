@@ -9,7 +9,7 @@ rather than a quoted reply.
 ###How?
 
 Using [reywood:publish-composite](https://atmospherejs.com/reywood/publish-composite), I wrote
-a little recurive publish function to do just that. 
+a little recursive publish function to do just that. 
 
 This is an example.
 
