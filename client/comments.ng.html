@@ -1,4 +1,4 @@
-<div ng-class="{innerComment: innerComment}" class="comment-list" ng-repeat="comment in comments">
+<div ng-class="{'inner-comment': innerComment}" class="comment-list" ng-repeat="comment in comments">
 	<div class="comment-user">
 		{{::comment.user.name}}
 	</div>
@@ -10,9 +10,11 @@
 	</div>
 	
 	<a href="#" ng-click="makeComment = !makeComment">comment</a>
-	<form ng-show="makeComment">
-		<textarea id="inner-comment-input{{comment._id}}" width="100%" ng-model="commentReply.text"></textarea>
-		<button ng-click="postComment(commentReply, comment); makeComment = false;">Send</button>
+	<form focus-on-show="inner-comment-input{{comment._id}}" ng-show="makeComment" class="form-inline">
+		<div class="form-group">
+			<input type="text" class="form-control" id="inner-comment-input{{comment._id}}" width="100%" ng-model="commentReply.text">
+		</div>
+		<button class="btn btn-default" ng-click="postComment(commentReply, comment); makeComment = false;">Send</button>
 	</form>
 	<comments inner-comment="true" parent="comment._id"></comments>
 </div>

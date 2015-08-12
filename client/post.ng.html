@@ -6,5 +6,12 @@
 		{{post.post.text}}
 	</p>
 	
-	<comments inner-comment="false" parent="post.post._id" comment-in="item.postedComment"></comments>
+	<a href="#" ng-click="makeComment = !makeComment">comment</a>
+	<form focus-on-show="{{post.post._id}}" ng-show="makeComment" class="form-inline">
+		<div class="form-group">
+			<input type="text" class="form-control" id="{{post.post._id}}" ng-model="post.commentReply.text">
+		</div>
+		<button class="btn btn-default" ng-click="post.postComment(post.commentReply, comment); makeComment = false;">Send</button>
+	</form>
+	<comments inner-comment="false" parent="post.post._id" comment-in="post.postedComment"></comments>
 </div>

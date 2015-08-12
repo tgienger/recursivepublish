@@ -2,7 +2,7 @@
 var HomeController = (function () {
 	function HomeController($scope, $meteor, $stateParams, $rootScope) {
 		var _this = this;
-		
+
 		$meteor.subscribe('post', this.id).then(function (handle) {
 			_this.posts = $meteor.collection(Posts);
 		});
@@ -22,6 +22,12 @@ var HomeController = (function () {
 		this.postedComment = comment;
 		this.newComment = undefined;
 	};
+
+	HomeController.prototype.newPost = function (post) {
+		this.posts.save(post);
+		this.new = {};
+	};
+
 	HomeController.$inject = ['$scope', '$meteor', '$stateParams', '$rootScope'];
 	return HomeController;
 })();
@@ -36,12 +42,12 @@ var HomeConfig = (function () {
 				controllerAs: 'home',
 				controller: 'HomeController'
 			});
-			
+
 		$locationProvider.html5Mode(true);
 		$urlRouterProvider.otherwise('/home');
 	}
-	
-	
+
+
 	HomeConfig.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 	return HomeConfig;
 })();

@@ -25,7 +25,8 @@ var PostController = (function () {
 			comment.parent_id = this.post._id;
 		}
 		this.postedComment = comment;
-		this.newComment = undefined;
+		this.commentReply = {};
+		// this.newComment = {};
 	};
 	PostController.$inject = ['$scope', '$meteor', '$stateParams', '$rootScope'];
 	return PostController;
