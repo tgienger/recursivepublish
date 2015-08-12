@@ -1,0 +1,17 @@
+<div>
+	<h1>Home</h1>
+	
+	<ul>
+		<li ng-repeat="post in home.posts">
+			<p>
+				<a ng-href="/post/{{post._id}}">{{post.title}}</a>
+			</p>
+		</li>
+	</ul>
+	
+	<form>
+		<input type="text" ng-model="home.newPost.title" placeholder="title"><br>
+		<textarea ng-model="home.newPost.text" placeholder="text"></textarea>
+		<input type="submit" ng-click="newPost()">
+	</form>
+</div>

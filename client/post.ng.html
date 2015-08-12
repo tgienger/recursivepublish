@@ -1,0 +1,10 @@
+<div>
+	<h1>
+		{{post.post.title}}
+	</h1>
+	<p>
+		{{post.post.text}}
+	</p>
+	
+	<comments inner-comment="false" parent="post.post._id" comment-in="item.postedComment"></comments>
+</div>
